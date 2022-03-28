@@ -6,5 +6,5 @@ My sudoku_solver function takes a board state as a 9x9 numpy array and creates a
 * Loop untill no free squares have a single domain value:
     * get list of empty quares 
     * for each empty square:
-      * check its domain according to all of its binary constraints, if it is single valued, set to this value.
-
+      * check its domain according to all of its binary constraints, if it is single valued, set to this value
+    * if no domain was single valued propagation is complete
