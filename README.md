@@ -12,7 +12,7 @@ If the selected variable's domain is zero, a failure is triggered, otherwise eac
 If the initial call of the backtracking algorithm results in failure it means that there is no possible solution for the board as every possible value of the first square cheked has resulted in failure, meaning that that square has no valid value. In this case the solve method returns the requested numpy array of 9x9 -1s.
 
 ## Optimisation of Backtracking Algorithm
-I optimised my search algorithm by using heuristics for selecting variables and values and ensuring the methods used were as efficient as possible. The point of using the MRV heuristic was in order to prune the search tree by triggering failures earlier. Any variables in the input squares of the get_MRV method whose domain is empty gets checked first. The get_mrv method was further optimised by by ensuring that as soon as any variable with an empty domain was found it was returned in order to trigger a failure as soon as possible. It obviously doesn't matter which of the empty domain squares is selected as they all result in failure. The use of the degree heuristic in tiebreaking for the selection of the most restricted variable reduces the branching factor of the subsequent tree and resulted in a slight improvement in total runtime of the algorithm however its effect was far less than the MRV heuristic.
+I optimised my search algorithm by using heuristics for selecting variables and values and ensuring the methods used were as efficient as possible. The point of using the MRV heuristic was in order to prune the search tree by triggering failures earlier, as if one of the input squares of the get_mrv has an empty domain, it will be selected first, triggering a failure. The get_mrv method was further optimised by by ensuring that as soon as any variable with an empty domain was found it was returned in order to trigger a failure as soon as possible. It obviously doesn't matter which of the empty domain squares is selected as they all result in failure. The use of the degree heuristic in tiebreaking for the selection of the most restricted variable reduces the branching factor of the subsequent tree and resulted in a slight improvement in total runtime of the algorithm however its effect was far less than the MRV heuristic.
 
 Initially I used forward checking to detect future failures inferred by variable assignments before the algorithm was called again recursively. However, I found that the algorithm performed slightly better (~ 1s faster total runtime) by instead ensuring that, if a selected square wasn't arc consistent, the algorithm triggered a failure. 
 Since the domain was already calculated for the next step (looping through domain values) this was easily done by simply checking if it was empty.
@@ -22,5 +22,4 @@ I also tried using the least constraining values heuristic to make the order in 
 
 ### References
 Russell, S., Norvig, P., n.d. Artificial intelligence. 3rd ed. Pearson, pp.202-220.
-
-(Russell and Norvig n.d.)
+(Used pseudocode and ideas for heuristics)
