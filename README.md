@@ -1,3 +1,3 @@
 # Sudoku Solver
- ** CSP Backtracking Search algorithm for solving sudoku puzzles **
+ * CSP Backtracking Search algorithm for solving sudoku puzzles *
 
