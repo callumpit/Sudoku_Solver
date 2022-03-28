@@ -4,6 +4,6 @@ For my solution I have used a CSP Backtracking Search algorithm for solving sudo
 My sudoku_solver function takes a board state as a 9x9 numpy array and creates an instance of my SudokuState class, and then calls the Sudokustate.solve method. This algorithm first checks the input board to see if it is a valid initial state, i.e. does the initial state of the board break any of the rules of Sudoku. If it isn't valid the requested numpy array of 9x9 -1s is returned. If the initial state is valid, the method attempts to solve the board intially by constraint propagation by calling the Sudoku.proagate_constraints method. This method works as follows:
 * Loop untill no free squares have a single domain value:
 *   get list of empty quares 
-*     for each empty square:
-*       check its domain according to all of its binary constraints, if it is single valued, set to this value.
+    for each empty square:
+       check its domain according to all of its binary constraints, if it is single valued, set to this value.
 
